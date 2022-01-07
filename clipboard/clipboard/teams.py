@@ -3,6 +3,9 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class AgeGroup:
+    """
+    A Class for Age Group, eg. Junior, Middlle, etc. . Different to Year Group which is the grade of the student
+    """
     id: int
     name: str
 
@@ -24,13 +27,13 @@ class Department:
 class Activity:
     id: int
     name: str
-    sisCode: str
-    optedInForLinking: bool
-    department: Department
+    sisCode: str = None
+    optedInForLinking: bool = None
+    department: Department = None
 
 
 @dataclass(frozen=True)
-class Teams:
+class Team:
     id: int
     name: str
     playersRanked: bool

@@ -2,12 +2,22 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class Owner:
+class LocationOwner:
     id: int
     name: str
     acronym: str
     shortName: str
     state: str
+
+
+@dataclass(frozen=True)
+class Location:
+    id: int
+    name: str
+    address: str
+    latitude: float
+    longitude: float
+    owner: LocationOwner
 
 
 @dataclass(frozen=True)
@@ -26,16 +36,6 @@ class Activity:
 
 
 @dataclass(frozen=True)
-class LocationData:
-    id: int
-    name: str
-    address: str
-    latitude: float
-    longitude: float
-    owner: Owner
-
-
-@dataclass(frozen=True)
 class OpponentOrganisation:
     id: int
     name: str
@@ -49,11 +49,11 @@ class OpponentTeam:
 
 
 @dataclass(frozen=True)
-class Sessions:
+class Session:
     activity: Activity
     feedback: list
     assignedStaff: list
-    locationData: LocationData
+    locationData: Location
     location: str
     result: str
     activityColour: int
